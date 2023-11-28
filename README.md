@@ -19,6 +19,6 @@
 ![demo2](https://github.com/eulneul/WriteNow/assets/70475010/439724b5-7ee6-46cb-b521-de2df5ca2cdd)
 
 ------
-## 작동 방식
+## 아키텍쳐
 
 ![howitworks](https://github.com/eulneul/WriteNow/assets/70475010/ca5a0cbd-934a-4cc2-a942-a790bdcb5185)

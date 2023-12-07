@@ -21,4 +21,4 @@
 ------
 ## 아키텍쳐
 
-![howitworks](https://github.com/eulneul/WriteNow/assets/70475010/ca5a0cbd-934a-4cc2-a942-a790bdcb5185)
+![architecture](https://github.com/eulneul/WriteNow/assets/70475010/37a58260-b1ec-445b-a752-a27fc169a3df)

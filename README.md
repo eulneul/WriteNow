@@ -17,6 +17,11 @@
 ## 데모 영상
 [![Video Label](http://img.youtube.com/vi/9asMHZ2NsZY/0.jpg)](https://youtu.be/9asMHZ2NsZY)
 
+
+https://github.com/eulneul/WriteNow/assets/70475010/a47baf7a-fee4-4b68-b649-33a3b0ba71b5
+
+
+
 ------
 ## 아키텍쳐
 

@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, g, session
 import os
 
 #os.system("pip install git+https://github.com/haven-jeon/PyKoSpacing.git")
+
 import fitz
 from notemodel import *
 
@@ -15,7 +16,6 @@ spacing = Spacing()
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
 
 tokenizer = PreTrainedTokenizerFast.from_pretrained("ainize/kobart-news")
 model = BartForConditionalGeneration.from_pretrained("ainize/kobart-news")
@@ -31,6 +31,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/')
 def hello_world():
     return render_template("index.html", encoding="utf-8")
+
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -120,6 +121,7 @@ def pymodel():
                 underlined_text = underlined_texts(page, real_lines)
                 etc_text = etc_texts(page, etc_lines)
                 highlight_text = highlight_texts(page, fills, boolNext)
+
             sorted_list = sorting_text(underlined_text, etc_text, highlight_text)
             if i == 0:
                 f = open("notetext.txt", 'w', encoding='utf-8')
@@ -128,6 +130,7 @@ def pymodel():
             f.write("Page {}\n".format(i))
             f.write("Important texts \n-------------------\n")
             for j in range(len(sorted_list)):
+
                 spacing_list = sorted_list[j][0].split('\n')
                 for k in spacing_list:
                     data = spacing(k) + "\n"
@@ -135,6 +138,7 @@ def pymodel():
             f.close()
 
         # 요약 모델 시작
+
     weight_list = save_weight("notetext.txt", doc)
     weight_list = delete_n(weight_list)
     summarized_list = []
@@ -144,10 +148,12 @@ def pymodel():
         result_text = []
         result_page = []
         paragraph = splittext(page, pdf_name)
+
         weight = weight_list[p].copy()
         add_sentence(weight, paragraph, lst)
         indexing = [item[0] for item in lst[0]]
         result_list = paragraph_to_list(paragraph)
+
         temp_paragraph = insert_sentence(doc, p, lst, pdf_name)
         summarized_text = ''
 
@@ -170,6 +176,7 @@ def pymodel():
                         min_length=80,
                         num_beams=4,
                         )
+
                 else:
                     summary_text_ids = model.generate(
                         input_ids=input_ids,
@@ -242,8 +249,6 @@ def pymodel():
     shutil.move(source_file1, destination_directory1)
 
     return render_template("output.html", encoding="utf-8")
-
-
 
 
 if __name__ == '__main__':

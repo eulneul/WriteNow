@@ -267,3 +267,4 @@ def sorting_text(underlined_text, etc_text, highlight_text):
         sorted_list[i], sorted_list[min_index] = sorted_list[min_index], sorted_list[i]
 
     return sorted_list
+

@@ -1,0 +1,12 @@
+.my_gradient_1{
+                width: auto;
+                height: 1500px;
+                background-image: linear-gradient(to top, #1cbbb4, white);
+            }
+
+
+body {
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  color: #0c0c0c;
+  background-color: #ffffff;
+}

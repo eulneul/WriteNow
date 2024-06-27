@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼 스타일링 예제</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* 버튼 스타일링 */
+    .custom-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #3498db; /* 버튼 배경색 */
+      color: #fff; /* 버튼 텍스트 색상 */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    /* 마우스 호버 시 배경색 변경 */
+    .custom-button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="extractButton" class="custom-button">요약문서 이동</button>
+
+  <script>
+    document.getElementById('extractButton').addEventListener('click', function() {
+      // 추출 버튼이 클릭되면 서버로 비동기 요청 보냄
+      fetch('/extract', {
+        method: 'POST',
+      })
+      .then(response => response.text())
+      .then(message => {
+        // 서버로부터 받은 메시지를 alert 또는 다른 방법으로 표시
+        alert(message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
+
+</body>
+</html>
